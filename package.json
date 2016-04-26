@@ -1,0 +1,22 @@
+{
+  "name": "p2-b1",
+  "version": "1.0.0",
+  "description": "Battleship variation",
+  "main": "Server.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "httpdispatcher": "^1.0.0",
+    "socket.io": "^1.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Battleship",
+    "variation"
+  ],
+  "author": "Thomas Sell",
+  "license": "ISC"
+}

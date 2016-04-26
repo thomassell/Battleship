@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <meta charset="UTF-8">
+    <title>BattleShip</title>
+    
+    <script src="/static/phaser.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/static/jquery-1.12.2.js"></script>
+    <script src="/static/Game.js"></script>
+    <script src="/static/ExtraFunctions.js"></script>
+    <script src="/static/sendToServer.js"></script>
+	
+</head>
+
+<body>
+	
+	<div id="menuScreen">
+		<div>
+			<h1>BattleShip</h1>
+		</div>
+		<div>
+			<input id="startButton" type="button" value="Start"/>
+		</div>
+		<div>
+			<input id="rulesButton" type="button" value="Rules"/>
+		</div>
+	</div>
+	
+	<div id="loginScreen">
+		<div>
+			<h1>BattleShip</h1>
+		</div>
+		<div>
+			<h4>Enter your Username</h4>
+		</div>
+		<div>
+			<input id="usernameInput" type="text" maxlength="25" placeholder="Username" autocomplete="off"/>
+		</div>
+		<div>
+			<input id="loginButton" type="button" value="Login" />
+		</div>
+		<input id="loginBackButton" type="button" value="Back"/>
+	</div>
+	
+	<div id="rulesScreen">
+		<div id="rulesHeader">
+			<div>
+				 <h1>BattleShip</h1>
+			</div>
+			<div>
+				<h4>Rules</h4>
+			</div>
+			<div>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/cYQ4P9V1gx0" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div id="rulesTextDiv">
+			<textarea readonly id="rulesText"></textarea>
+		</div>
+		<input id="rulesBackButton" type="button" value="Back" />
+	</div>
+	
+	<div id="gameScreen"> 
+		<div class="playerNameDiv">
+			<h2 id="playerUserName"></h2>
+		</div>
+		<div class="opponentNameDiv">
+			<h2 id="opponentUserName"></h2>
+		</div>
+		
+		 <!-- player represents the player's board on the screen -->
+		<div class="player">    
+			<div id="playerBoard"></div>
+			
+			<!--actions represents the 10 circles underneath the player's board which indicate how many remaining actions the player has on the current turn -->
+			<div class = "actions">       
+				<svg> <circle id="circle10"></circle> </svg>
+				<svg> <circle id="circle9"></circle> </svg>
+				<svg> <circle id="circle8"></circle> </svg>
+				<svg> <circle id="circle7"></circle> </svg>
+				<svg> <circle id="circle6"></circle> </svg>
+				<svg> <circle id="circle5"></circle> </svg>
+				<svg> <circle id="circle4"></circle> </svg>
+				<svg> <circle id="circle3"></circle> </svg>
+				<svg> <circle id="circle2"></circle> </svg>
+				<svg> <circle id="circle1"></circle> </svg>
+				<div id="actions-remaining-circle">
+					<span></span>
+				</div>
+			</div>
+		</div>
+		
+		<!-- betweenBoards represents the data that appears between the player's board and the opponent's board -->
+		<div class="betweenBoards">
+			
+			<!-- inGameStats represents the statistics and data for the current game -->
+			<div class="inGameStats">
+				<div id="timeRemaining">Time Remaining:<br>
+					<span id="time"></span>
+				</div>
+				<!-- <div id="win-loss">WIN/LOSS:<br>
+					<span id="winRatio">X/X</span>
+				</div> -->
+			</div>
+			<div class="readyButton">
+				<input id="readyButton" type="button" value="Start Game" />       <!-- onclick="clientReady();" -->
+			</div>
+			<div class="notificationDiv">
+				<h4>Notification Box</h4>
+				<textarea readonly id="notifications">Set your ships and then press Start Game</textarea>
+			</div>
+            
+            <div class="chatDiv">
+                <h4>Chat Box</h4>
+				<textarea readonly id="chatBox"></textarea>
+                <input id="messageInput" type="text" maxlength="100" placeholder="Type Message" autocomplete="off"/>
+                <input id="chatButton" type="button" value="Send Message" />
+            </div> 
+        </div>
+		
+		<!-- opponent represents the opponent's board on the screen -->
+		<div class="opponent">           
+			<div id="opponentBoard"></div>
+		</div>
+		
+		<div class="endOfGame">
+			<div id="victory-defeat">
+				<span id="victor-defeat-text"></span>
+			</div>
+			<input id="play-again" type="button" value="PLAY AGAIN" /> 
+			<input id="main-menu" type="button" value="MAIN MENU" />
+		</div>
+	</div>
+	<!-- player and opponent usernames -->
+	
+	
+</body>
+
+</html>
