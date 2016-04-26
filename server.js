@@ -2,7 +2,8 @@ var express = require('express'),
     http    = require('http'),
     game    = express(),
     server  = http.createServer(game),
-    port    = 8080;
+		// process.env.PORT lets the port be set by Heroku
+    port    = process.env.PORT || 8080;
 
 server.listen(port);
 
